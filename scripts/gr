@@ -1,0 +1,11 @@
+# Review changes on branch
+PARENT=${1:-"develop"}
+
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  echo "Error: Not a git repository."
+  exit 1
+fi
+
+echo "--- Reviewing changes against $PARENT ---"
+
+git diff --color=always "$PARENT...HEAD" | less -R

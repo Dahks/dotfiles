@@ -1,0 +1,4 @@
+# Review commits + messages before PRs
+
+PARENT=${1:-"develop"}
+git rebase -i $(git merge-base HEAD "$PARENT")
