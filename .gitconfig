@@ -1,0 +1,8 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = Dagur Thorisson
+	email = 87153714+Dahks@users.noreply.github.com
+	useConfigOnly = true
+[core]
+	editor = nvim
