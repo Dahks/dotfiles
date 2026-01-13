@@ -1,4 +1,11 @@
 
+# gh
+Do all github related stuff from terminal.
+```
+gh pr create --base $PARENT
+```
+- *Create PR for the current branch and base it on $PARENT branch
+
 # rsync
 Sync files between locations (git without formalities).
 
