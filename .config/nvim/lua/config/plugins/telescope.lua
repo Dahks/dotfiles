@@ -31,12 +31,7 @@ return {
     vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = '[F]ind [String] in files' })
     vim.keymap.set('n', '<leader>fn', builtin.resume, { desc = '[F]ind [Next] string in files' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-    vim.keymap.set(
-      'n',
-      '<leader>fh',
-      ':Telescope find_files hidden=true <CR>',
-      { desc = '[F]ind [H]idden files' }
-    )
+    vim.keymap.set('n', '<leader>fh', ':Telescope find_files hidden=true <CR>', { desc = '[F]ind [H]idden files' })
     vim.keymap.set('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         previewer = false,
