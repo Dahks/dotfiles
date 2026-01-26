@@ -37,10 +37,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Enable 'gd' to jump to definition
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to Definition" })
     
-    -- Recommended: 'gr' for references (where is this function used?)
+    -- 'gr' for references (where is this function used?)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = args.buf, desc = "Go to References" })
     
-    -- Recommended: 'K' for hover documentation
+    -- 'K' for hover documentation
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover Documentation" })
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "make",
+    callback = function()
+        vim.opt_local.expandtab = false 
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.tabstop = 4
+    end,
 })
