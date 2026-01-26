@@ -1,4 +1,13 @@
 
+# git
+### Restore from source (interactively)
+```
+// Look at difference between current branch and source
+git diff $SourceBranch 
+// Path difference from source back into current branch
+git restore -p --source=$SourceBranch path/to/file/to/change
+```
+
 # gh
 Do all github related stuff from terminal.
 ```
