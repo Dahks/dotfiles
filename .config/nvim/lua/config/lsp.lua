@@ -1,4 +1,3 @@
-vim.lsp.enable('clang_ls')
 vim.lsp.enable('css_ls')
 vim.lsp.enable('eslint_ls')
 vim.lsp.enable('html_ls')
@@ -6,6 +5,7 @@ vim.lsp.enable('json_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('twd_ls')
+vim.lsp.enable("clangd")
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'python',
