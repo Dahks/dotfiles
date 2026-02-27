@@ -1,0 +1,42 @@
+# Venv Activate
+#   need to add this as a function to shell configuration
+#   rules encoded in code :)
+va() {
+    if [ "$#" -eq 0 ]; then
+        # Use Case 1: Call `va` -> source .venv/bin/activate
+        if [ -f ".venv/bin/activate" ]; then
+            source .venv/bin/activate
+            echo "Activated .venv"
+        else
+            echo "Error: .venv/bin/activate not found in the current directory."
+        fi
+
+    elif [ "$1" = "-p" ] && [ "$#" -eq 2 ]; then
+        # Use Case 2: Call `va -p ../` -> source ../.venv/bin/activate
+        local target_dir="$2"
+        # Bash handles double slashes well, so trailing slashes in $2 won't break this
+        if [ -f "${target_dir}/.venv/bin/activate" ]; then
+            source "${target_dir}/.venv/bin/activate"
+            echo "Activated ${target_dir}/.venv"
+        else
+            echo "Error: .venv/bin/activate not found in ${target_dir}."
+        fi
+
+    elif [ "$#" -eq 1 ]; then
+        # Use Case 3: Call `va ../something/mercury_venv` -> source ../something/mercury_venv/bin/activate
+        local venv_path="$1"
+        if [ -f "${venv_path}/bin/activate" ]; then
+            source "${venv_path}/bin/activate"
+            echo "Activated ${venv_path}"
+        else
+            echo "Error: bin/activate not found in ${venv_path}."
+        fi
+
+    else
+        # Fallback for invalid arguments
+        echo "Usage:"
+        echo "  va                      (Activates local .venv)"
+        echo "  va -p <path>            (Activates <path>/.venv)"
+        echo "  va <path_to_venv>       (Activates <path_to_venv>)"
+    fi
+}
